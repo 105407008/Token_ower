@@ -16,7 +16,7 @@ contract Token {
         balances[msg.sender] = _initialSupply;
          owner = msg.sender;
     }
-    function transfer(address _to,uint256 _value) public{
+    function transfer(address _to,uint256 _value) public OnlyOwner{
         require(balances[msg.sender] >=_value);
         require(balances[_to] + _value >=balances[_to]);
         balances[msg.sender] -=_value;
